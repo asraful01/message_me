@@ -1,8 +1,14 @@
-<div class="event">
-  <div class="content">
-    <div class="summary">
-      <em><%= message.user.username %></em>:<%= message.body %>
+<div class="ui message">
+	<div class="summary">
 
-    </div>
-  </div>
+		<% if !message.user.nil? %>
+	<strong>
+		<em><%= message.user.username %></em>
+	</strong>: <%= message.body %>
+			<small class="created">&nbsp&nbsp<%= time_ago_in_words(message.created_at) %>&nbsp ago</small>
+		<% end %>
+
+
+
+</div>
 </div>

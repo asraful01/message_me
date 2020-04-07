@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  get 'messages/create'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-#first step
-root 'chatroom#index'
-get 'login', to: 'sessions#new'
-post 'login', to:'sessions#create'
-delete 'logout', to: 'sessions#destroy'
-post 'message', to: 'messages#create'
+  root 'chatroom#index'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'message', to:'chatroom#show'
+  delete 'logout', to: 'sessions#destroy'
+  post 'message', to: 'messages#create'
 
-mount ActionCable.server, at: '/cable'
+  get 'signup', to: 'users#new'
+	post 'signup', to: 'users#create'
+	resources :users, except: [:new,:create,:index,:show,:destroy]
+  post 'message', to:'messages#create'
+  mount ActionCable.server, at: '/cable'
 end
