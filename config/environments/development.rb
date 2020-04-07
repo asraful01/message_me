@@ -60,4 +60,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # config.action_cable.disable_request_forgery_protection = true
   # config.action_cable.allowed_request_origins = ['https://mashrur-messageme_test.herokuapp.com']
+  config.action_cable.url = "ws://localhost:3000/cable"
+
 end

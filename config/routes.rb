@@ -10,5 +10,8 @@ Rails.application.routes.draw do
 	post 'signup', to: 'users#create'
 	resources :users, except: [:new,:create,:index,:show,:destroy]
   post 'message', to:'messages#create'
+
   mount ActionCable.server, at: '/cable'
+   
+
 end
